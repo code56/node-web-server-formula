@@ -2,5 +2,5 @@ base:
     '*':
         - elife
         - elife.php7
-        - elife.nodejs5
+        - elife.nodejs6
         - node-web-server

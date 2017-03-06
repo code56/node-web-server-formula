@@ -1,4 +1,4 @@
 base:
-	'*':
-		-code56
-		-node-web-server
+    '*':
+        - elife
+        - node-web-server
