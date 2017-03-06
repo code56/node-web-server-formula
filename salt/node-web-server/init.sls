@@ -1,7 +1,7 @@
 node-web-server-repository:
     builder.git_latest:
-        - name: git@github.com:code56.node-web-server.git
-        - identity: {{ pillar.elife.projects_builder or '' }}
+        - name: git@github.com:code56.node-web-server-formula.git
+        - identity: {{ pillar.elife.projects_builder.key or '' }}
         - rev: {{ salt['elife.rev']() }}
         - target: /srv/node-web-server/
         - branch: {{ salt['elife.branch']() }}
