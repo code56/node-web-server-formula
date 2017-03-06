@@ -1,0 +1,6 @@
+base:
+    '*':
+        - elife
+        - elife.php7
+        - elife.nodejs5
+        - node-web-server
