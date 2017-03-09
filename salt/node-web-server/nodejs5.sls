@@ -6,7 +6,7 @@ nodejs:
         # retry after upgrading Python to latest 2.7.*
         #- name: deb https://deb.nodesource.com/node_5.x trusty main
         #- key_url: https://deb.nodesource.com/gpgkey/nodesource.gpg.key
-         - file: /etc/apt/sources.list.d/nodesource.list
+        - file: /etc/apt/sources.list.d/nodesource.list
 
     pkg.installed:
         - name: nodejs
