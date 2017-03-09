@@ -11,7 +11,7 @@ node-web-server-repository:
         - fetch_pull_requests: True
 
     file.directory:
-        - name: /srv/node-web-server
+        - name: /srv/node_web_server
         - user: {{ pillar.elife.deploy_user.username }}
         - group: {{ pillar.elife.deploy_user.username }}
         - recurse: 
