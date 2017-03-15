@@ -6,4 +6,5 @@ base:
         - node-web-server.nodejs5
         - node-web-server
         - elife.mysql57
-        
+      #  - elife.mysql-server
+      #  - elife.mysql-client
