@@ -1,7 +1,7 @@
 node-web-server-repository:
     builder.git_latest:
         - name: git@github.com:code56/node_web_server.git
-	- branch: branch_for_vagrant
+	    - branch: branch_for_vagrant
         - identity: {{ pillar.elife.projects_builder.key or '' }}
         - rev: {{ salt['elife.rev']() }}
         - target: /srv/node-web-server/
