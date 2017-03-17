@@ -1,6 +1,7 @@
 node-web-server-repository:
     builder.git_latest:
         - name: git@github.com:code56/node_web_server.git
+	- branch: branch_for_vagrant
         - identity: {{ pillar.elife.projects_builder.key or '' }}
         - rev: {{ salt['elife.rev']() }}
         - target: /srv/node-web-server/
@@ -20,10 +21,23 @@ node-web-server-repository:
         - require:
             - builder: node-web-server-repository
 
+
+node-web-server-deb-dependencies:
+    pkg.installed:
+        - pkgs:
+            - ruby-dev
+            - rake 
+
+
 #added these 3 lines need to test them to see if they are working
 npm-install:
     cmd.run:
-        - name: npm install 
+        - name: sudo npm install
+        - cwd: /srv/node-web-server/
+        - user: {{ pillar.elife.deploy_user.username }}
+        - require:
+            - node-web-server-deb-dependencies
+            - node-web-server-repository
     
 
 node-web-server-database:
