@@ -1,9 +1,9 @@
 node-web-server-repository:
     builder.git_latest:
         - name: git@github.com:code56/node_web_server.git
-	    - branch: branch_for_vagrant
+        #- branch: branch_for_vagrant
         - identity: {{ pillar.elife.projects_builder.key or '' }}
-        - rev: {{ salt['elife.rev']() }}
+        - rev: branch_for_vagrant
         - target: /srv/node-web-server/
         - branch: {{ salt['elife.branch']() }}
         - force_fetch: True
@@ -77,6 +77,18 @@ node-web-server-database-access:
         - require:
             - node-web-server-database
             - node-web-server-database-user
+
+
+# only run the bash file with the rake commands to populate 
+# the mysql database if it wasn't run before
+
+# testing to run a shell script
+
+Run myscript:
+    cmd.run:
+        - name: /srv/node_web_server/public/assets/bash/testing_bash.sh
+        - cwd: /
+        - stateful: True
 
 
 
