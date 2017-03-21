@@ -84,11 +84,11 @@ node-web-server-database-access:
 
 # testing to run a shell script
 
-run my bash testing_bash.sh: 
+run testing_bash.sh: 
     cmd.run:
         - name: sudo bash testing_bash.sh
         - cwd: /srv/node-web-server/public/assets/bash/
-        - stateful: True
+        - stateful: False
 
 
 run my rake simple.rb:
