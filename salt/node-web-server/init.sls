@@ -95,7 +95,9 @@ run my rake simple.rb:
     cmd.run:
         - name: sudo ruby simple.rb
         - cwd: /srv/node-web-server/public/assets/ruby/
-        - stateful: True 
+        - stateful: False
+
+
 
 
 
