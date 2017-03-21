@@ -86,7 +86,7 @@ node-web-server-database-access:
 
 Run myscript:
     cmd.run:
-        - name: /srv/node_web_server/public/assets/bash/testing_bash.sh
+        - name: /srv/node_web_server/public/assets/bash/
         - cwd: /
         - stateful: True
 
