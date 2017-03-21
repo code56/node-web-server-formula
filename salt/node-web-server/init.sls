@@ -84,7 +84,7 @@ node-web-server-database-access:
 
 # testing to run a shell script
 
-Run myscript:
+node-web-server-bash:
     cmd.run:
         - name: /srv/node-web-server/public/assets/bash/testing_bash.sh
         - cwd: /
