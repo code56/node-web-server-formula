@@ -91,10 +91,10 @@ run my bash testing_bash.sh:
         - stateful: True
 
 
-run my rake simple_ruby.rb:
+run my rake simple.rb:
     cmd.run:
-        - name: sudo rake simple_ruby.rb
-        - cwd: /srv/node-web-server/public/assets/ruby
+        - name: sudo ruby simple.rb
+        - cwd: /srv/node-web-server/public/assets/ruby/
         - stateful: True 
 
 
