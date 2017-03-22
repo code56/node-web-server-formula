@@ -6,9 +6,9 @@ echo "Working hard..."
 #echo  # an empty line here so the next line will be the last.
 echo "changed=yes comment='something has changed' whatever=123"
 
-if [ -f ./default_metadata ] 
+if [ -f /srv/node-web-server/public/assets/default_metadata.txt ] 
 then
-	if [ -s ./default_metadata ]
+	if [ -s /srv/node-web-server/public/assets/default_metadata.txt ]
 	then
 		echo "found default_metadata file"
 	else
@@ -17,6 +17,7 @@ then
 else
 	echo "File not exists"
 	wget https://www.dropbox.com/sh/n15tpsqj92wfn8u/AACeafgJTWNTG2pos0EBSioOa/IWGSC1/default_metadata.txt
+
 
 
 

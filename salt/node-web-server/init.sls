@@ -87,7 +87,7 @@ node-web-server-database-access:
 Run testing_bash.sh:
     cmd.run:
         - name: sudo bash testing_bash.sh
-        - cwd: /srv/node-web-server/bash/
+        - cwd: /srv/node-web-server/public/assets/bash/
         - stateful: False
 
 
