@@ -87,8 +87,8 @@ node-web-server-database-access:
 Run testing_bash.sh:
     cmd.run:
         - name: sudo bash testing_bash.sh
-        - cwd: /srv/node-web-server/public/assets/bash/
-        - stateful: True
+        - cwd: /srv/node-web-server/bash/
+        - stateful: False
 
 
 run my rake simple.rb:
@@ -98,12 +98,7 @@ run my rake simple.rb:
         - stateful: False
 
 
-
-
-
-
-        
-
+#download files from Dropbox:
 
 
 
