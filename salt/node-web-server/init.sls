@@ -98,6 +98,52 @@ run my rake simple.rb:
         - stateful: False
 
 
+# to download the expvip-web-server of Ricardo Ramirez code, so that the
+# commands for running the server, and for populating the tables will be 
+# working 
+
+expvip-server-repository:
+    builder.git_latest:
+        - name: git@github.com:homonecloco/expvip-web.git
+        #- branch: branch_for_vagrant
+        - identity: {{ pillar.elife.projects_builder.key or '' }}
+        - target: /srv/expvip-server/
+        - branch: master
+        - force_fetch: True
+        - force_checkout: True
+        - force_reset: True
+        - fetch_pull_requests: True
+
+    file.directory:
+        - name: /srv/expvip_server
+        - user: {{ pillar.elife.deploy_user.username }}
+        - group: {{ pillar.elife.deploy_user.username }}
+        - recurse: 
+            - user
+            - group
+        - require:
+            - builder: expvip-server-repository
+
+
+
+expvip-server-deb-dependencies:
+    pkg.installed:
+        - pkgs:
+            - bundler
+
+# to load the required gems, run "bundle install"
+bundle-install:
+    cmd.run:
+        - name: sudo bundle install
+        - cwd: /srv/expvip-server/
+        - user: {{ pillar.elife.deploy_user.username }}
+        - require:
+            - node-web-server-deb-dependencies
+            - expvip-server-repository
+
+
+
+
 #download files from Dropbox:
 
 
