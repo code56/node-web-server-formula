@@ -22,11 +22,11 @@ node-web-server-repository:
             - builder: node-web-server-repository
 
 
-node-web-server-deb-dependencies:
-    pkg.installed:
-        - pkgs:
-            - ruby-dev
-            - rake 
+#node-web-server-deb-dependencies:
+ #   pkg.installed:
+#        - pkgs:
+            #- ruby-dev
+            #- rake 
 
 
 #added these 3 lines need to test them to see if they are working
@@ -36,7 +36,7 @@ npm-install:
         - cwd: /srv/node-web-server/
         - user: {{ pillar.elife.deploy_user.username }}
         - require:
-            - node-web-server-deb-dependencies
+            #- node-web-server-deb-dependencies
             - node-web-server-repository
     
 
@@ -133,15 +133,18 @@ expvip-server-deb-dependencies:
             - rake 
             - bundler
 
+
+
 # to load the required gems, run "bundle install"
 bundle-install:
     cmd.run:
-        - name: sudo bundle install
+        - name: sudo gem install nokogiri -v '1.7.0.1' && sudo gem install activesupport -v '5.0.1' && sudo bundle install
         - cwd: /srv/expvip-server/
         - user: {{ pillar.elife.deploy_user.username }}
         - require:
             - expvip-server-deb-dependencies
             - expvip-server-repository
+            - cmd: ruby
 
 
 
