@@ -129,6 +129,8 @@ expvip-server-repository:
 expvip-server-deb-dependencies:
     pkg.installed:
         - pkgs:
+            - ruby-dev
+            - rake 
             - bundler
 
 # to load the required gems, run "bundle install"
@@ -138,7 +140,7 @@ bundle-install:
         - cwd: /srv/expvip-server/
         - user: {{ pillar.elife.deploy_user.username }}
         - require:
-            - node-web-server-deb-dependencies
+            - expvip-server-deb-dependencies
             - expvip-server-repository
 
 
