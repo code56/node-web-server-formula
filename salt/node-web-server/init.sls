@@ -138,13 +138,13 @@ expvip-server-deb-dependencies:
 # to load the required gems, run "bundle install"
 bundle-install:
     cmd.run:
-        - name: sudo gem install nokogiri -v '1.7.0.1' && sudo gem install activesupport -v '5.0.1' && sudo bundle install
+        - name: sudo apt-get install build-essential patch && sudo gem install rubygems-update && sudo gem install activesupport -v '5.0.1' 
         - cwd: /srv/expvip-server/
         - user: {{ pillar.elife.deploy_user.username }}
         - require:
             - expvip-server-deb-dependencies
             - expvip-server-repository
-            - cmd: ruby
+            - ruby
 
 
 
