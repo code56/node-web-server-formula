@@ -7,3 +7,4 @@ base:
         - node-web-server
         - elife.mysql57
         - node-web-server.ruby2_2
+        - node-web-server.rubygems
