@@ -104,9 +104,10 @@ run my rake simple.rb:
 
 expvip-server-repository:
     builder.git_latest:
-        - name: git@github.com:homonecloco/expvip-web.git
+        - name: git@github.com:code56/expvip-web.git
         #- branch: branch_for_vagrant
         - identity: {{ pillar.elife.projects_builder.key or '' }}
+        - rev: evanthia_vagrant_branch
         - target: /srv/expvip-server/
         - branch: master
         - force_fetch: True
@@ -138,12 +139,12 @@ expvip-server-deb-dependencies:
 # to load the required gems, run "bundle install"
 dependencies-install:
     cmd.run:
-        - name: sudo apt-get install build-essential patch && sudo gem install rubygems-update && sudo gem install activesupport -v '5.0.1' && sudo bundle install 
+        - name: sudo apt-get install build-essential patch && sudo gem install rubygems-update && sudo gem install activesupport -v '5.0.1' && sudo gem install nokogiri -v '1.6.7.2' && sudo bundle install 
         - cwd: /srv/expvip-server/
         - user: {{ pillar.elife.deploy_user.username }}
         - require:
-            - expvip-server-deb-dependencies
             - expvip-server-repository
+            - expvip-server-deb-dependencies
             - ruby
 
 

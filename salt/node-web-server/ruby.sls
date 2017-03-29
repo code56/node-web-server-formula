@@ -17,7 +17,7 @@ rbenv_deps:
     #  - build-essential
        - curl
     #  - git
-       - libmysqlclient-devls
+    #   - libmysqlclient-devls
        - libc6-dev
        - libncurses5-dev
        - libreadline-dev
@@ -36,16 +36,9 @@ rbenv_deps:
        - tklib 
        - zlib1g
        - zlib1g-dev
-       - mysql2 
 
 myrbenv:
   rbenv.install_rbenv:
     - name: "install_rbenv"
     - user: {{ pillar.elife.deploy_user.username }}
 
-ruby-2.2.0-p598:
-  rbenv.installed:
-    - default: True
-    - user: {{ pillar.elife.deploy_user.username }}
-    - require:
-      - pkg: rbenv_deps   
