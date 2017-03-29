@@ -129,16 +129,16 @@ expvip-server-repository:
 expvip-server-deb-dependencies:
     pkg.installed:
         - pkgs:
-            - ruby-dev
+            - ruby2.2-dev
             - rake 
             - bundler
 
 
 
 # to load the required gems, run "bundle install"
-bundle-install:
+dependencies-install:
     cmd.run:
-        - name: sudo apt-get install build-essential patch && sudo gem install rubygems-update && sudo gem install activesupport -v '5.0.1' 
+        - name: sudo apt-get install build-essential patch && sudo gem install rubygems-update && sudo gem install activesupport -v '5.0.1' && sudo bundle install 
         - cwd: /srv/expvip-server/
         - user: {{ pillar.elife.deploy_user.username }}
         - require:
